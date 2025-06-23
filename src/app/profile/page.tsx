@@ -46,7 +46,7 @@ export default function Profile() {
       }
     };
     fetchUserDetails();
-  }, []); // ✅ You missed this empty dependency array and closing parentheses
+  }, []); // ✅ you were missing this
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-black">
@@ -60,4 +60,4 @@ export default function Profile() {
       <h1>{data && data.user ? data.user.name : "No user data available"}</h1>
     </div>
   );
-} // ✅ Correctly closed the component function
+} // ✅ this was missing
