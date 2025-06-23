@@ -1,3 +1,10 @@
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React from "react";
+import axios from "axios";
+
 export default function Profile() {
   const router = useRouter();
   const [data, setData] = React.useState<any>(null);
@@ -39,7 +46,7 @@ export default function Profile() {
       }
     };
     fetchUserDetails();
-  });
+  }, []); // ✅ You missed this empty dependency array and closing parentheses
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-black">
@@ -53,3 +60,4 @@ export default function Profile() {
       <h1>{data && data.user ? data.user.name : "No user data available"}</h1>
     </div>
   );
+} // ✅ Correctly closed the component function
