@@ -37,10 +37,21 @@ export async function POST(request: NextRequest) {
     if (!email.includes("@")) {
       return NextResponse.json({ message: "Invalid email address" }, { status: 400 });
     }
+   //email verification
+   const verificationToken = await bcrypt.hash(email, 10);
+   console.log("🔑 Verification token:", verificationToken);
 
-    // Hash password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+   // Hash password
+   const salt = await bcrypt.genSalt(10);
+   const hashedPassword = await bcrypt.hash(password, salt);
+
+   await User.create({
+     username,
+     email,
+     password: hashedPassword,
+     verifyToken: verificationToken,
+     verifyTokenExpiry: Date.now() + 3600000 // 1 hour
+   });
 
     // Save user
     const newUser = new User({ username, email, password: hashedPassword });

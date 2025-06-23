@@ -8,7 +8,8 @@ const userSchema = new mongoose.Schema({
   isAdmin: { type: Boolean, default: false },
   forgotpasswordToken: { type: String, default: "" },
   forgotpasswordTokenExpiry: { type: Date, default: null },
-  
+  verifyToken: { type: String, default: "" },
+  verifyTokenExpiry: { type: Date, default: null }
 });
 
 const User = mongoose.models.User || mongoose.model("User", userSchema);
