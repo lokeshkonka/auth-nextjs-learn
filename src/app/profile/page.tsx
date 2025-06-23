@@ -39,7 +39,7 @@ export default function Profile() {
       }
     };
     fetchUserDetails();
-  }, []);
+  });
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 text-black">
@@ -52,5 +52,4 @@ export default function Profile() {
       </button>
       <h1>{data && data.user ? data.user.name : "No user data available"}</h1>
     </div>
-  );
-}; // ✅ No semicolon here
+  );// ✅ No semicolon here
