@@ -1,11 +1,3 @@
-"use client";
-
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React from "react";
-import axios from "axios";
-import { set } from "mongoose";
-
 export default function Profile() {
   const router = useRouter();
   const [data, setData] = React.useState<any>(null);
@@ -61,4 +53,4 @@ export default function Profile() {
       <h1>{data && data.user ? data.user.name : "No user data available"}</h1>
     </div>
   );
-};
+} // ✅ No semicolon here
