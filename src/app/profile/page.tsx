@@ -53,4 +53,4 @@ export default function Profile() {
       <h1>{data && data.user ? data.user.name : "No user data available"}</h1>
     </div>
   );
-} // ✅ No semicolon here
+}; // ✅ No semicolon here
