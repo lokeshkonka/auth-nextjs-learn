@@ -4,4 +4,4 @@ export default function ProfilePage({ params }:any) {
             <h1>Profile page for user: {params.id}</h1>
         </div>
     )
-}
+};
